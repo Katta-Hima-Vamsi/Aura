@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig.json to read mode about this file */
+    /* Basic Options */
+    "target": "ES6",
+    "module": "commonjs",
+    "lib": ["ESNext", "dom"],
+    "allowJs": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "removeComments": true,
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+    "noImplicitAny": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"]
+    },
+    "esModuleInterop": true,
+
+    /* Experimental Options */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    /* Advanced Options */
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": ["node_modules", "dist", "coverage"],
+  "include": ["src"]
+}

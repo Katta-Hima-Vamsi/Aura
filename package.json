@@ -1,0 +1,33 @@
+{
+  "name": "aura",
+  "version": "1.0.0",
+  "description": "A points management system backend.",
+  "main": "index.js",
+  "author": "Katta Hima Vamsi <hvkatta@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "nodemon",
+    "start:prod": "node -r ts-node/register/transpile-only -r tsconfig-paths/register ./dist/src/index.js",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/dotenv-safe": "^8.1.2",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.0",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "dotenv-safe": "^8.2.0"
+  }
+}

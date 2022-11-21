@@ -1,0 +1,11 @@
+# Dependency directories
+node_modules/
+
+# build output 
+build/
+
+# dotenv environment variable file
+.env
+
+# snyk cache
+.dccache
