@@ -12,7 +12,7 @@
 
     /* Strict Type-Checking Options */
     "strict": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
 
     /* Module Resolution Options */
     "moduleResolution": "node",
