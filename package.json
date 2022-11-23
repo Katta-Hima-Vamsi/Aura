@@ -23,7 +23,8 @@
     "mongoose": "^6.7.2",
     "mysql2": "^2.3.3",
     "nodemailer": "^6.8.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "typescript": "*"
   },
   "devDependencies": {
     "@types/async": "^3.2.15",
@@ -44,7 +45,6 @@
     "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
     "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.1.0",
-    "typescript": "*"
+    "tsconfig-paths": "^4.1.0"
   }
 }
