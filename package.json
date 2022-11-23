@@ -8,7 +8,7 @@
   "scripts": {
     "start:dev": "nodemon",
     "start:prod": "node -r ts-node/register/transpile-only -r tsconfig-paths/register ./dist/src/index.js",
-    "build": "yarn config set ignore-engines true && yarn install && rm -rf node_modules && rimraf ./yarn.lock && rimraf ./dist && yarn install && tsc"
+    "build": "yarn config set ignore-engines true && yarn install rimraf ./dist && tsc"
   },
   "dependencies": {
     "async": "^3.2.4",
