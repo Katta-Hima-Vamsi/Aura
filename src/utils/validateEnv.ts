@@ -1,5 +1,5 @@
 // Import the envalid package
-import { cleanEnv, str, num, port, email } from 'envalid';
+import { cleanEnv, str, num, port, email, url } from 'envalid';
 
 // Validate the environment variables
 function validateEnv() {
@@ -10,6 +10,8 @@ function validateEnv() {
     API_MANAGER_EMAIL: email(),
     POINTS_LIMIT: num(),
     TIME_ZONE: str(),
+    PING_URL: url(),
+    PING_INTERVAL: num(),
     STATUS_EMAIL: email(),
     STATUS_EMAIL_PASSWORD: str(),
     DATABASE_URI: str(),
