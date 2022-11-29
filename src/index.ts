@@ -9,7 +9,6 @@ import mysql from 'mysql2';
 import connectMongoDB from '@src/config/dbConnection';
 import rateLimiter from '@src/middleware/rateLimiter';
 import validateEnv from '@src/utils/validateEnv';
-import pinger from '@src/utils/pinger';
 import points from '@src/routes/points';
 import students from '@src/routes/students';
 import auth from '@src/routes/auth';
@@ -92,8 +91,6 @@ mongoose.connection.once('open', () => {
       sendMail(emailSubject, message);
       app.listen(port, () => {
         console.log(`Server running on port ${port}`);
-        // Start the pinger function
-        pinger();
       });
     }
   });
