@@ -1,19 +1,28 @@
-// Import the express package
 import express from 'express';
 
-// Import the routes related to authentication
 import auth from '@src/middleware/verifyToken';
 import register from '@src/controllers/auth/register';
 import deleteAcc from '@src/controllers/auth/delete';
 import login from '@src/controllers/auth/login';
 
-// Create a new router
+/**
+ * router is an instance of the Express router.
+ */
 const router = express.Router();
 
-// Create a route for the register endpoint
+/**
+ * login is a route that handles user login requests.
+ */
 router.post('/login', login);
+
+/**
+ * register is a route that handles user registration requests. It requires the request to be authenticated.
+ */
 router.post('/register', auth, register);
+
+/**
+ * deleteAcc is a route that handles delete user requests. It requires the request to be authenticated.
+ */
 router.delete('/delete', auth, deleteAcc);
 
-// Export the router
 export default router;

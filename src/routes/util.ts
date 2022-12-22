@@ -1,14 +1,16 @@
-// Import the express package
 import express from 'express';
 
-// Import the healthCheck
 import healthCheck from '@src/controllers/util/healthCheck';
 
-// Create a new router
+/**
+ * router is an instance of the Express router.
+ */
 const router = express.Router();
 
-// Create a route for the student endpoint
+/**
+ * healthCheck is a route that handles health check requests. It returns a 200 status code if the service is
+ * healthy, or a 500 status code if the service is not healthy.
+ */
 router.get('/status', healthCheck);
 
-// Export the router
 export default router;

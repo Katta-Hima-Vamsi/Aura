@@ -1,14 +1,15 @@
-// Import the required packages
 import mongoose from 'mongoose';
 
-// Connect to the mongoDB database
+/**
+ * connectMongoDB is a function that connects to a MongoDB database.
+ *
+ * The connection URI is specified in the `DATABASE_URI` environment variable.
+ * If the `DATABASE_URI` variable is not set, an empty string is used as the default value.
+ *
+ * @returns {void}
+ */
 const connectMongoDB = async () => {
-  try {
-    mongoose.connect(process.env.DATABASE_URI ?? '');
-  } catch (err) {
-    console.error(err);
-  }
+  mongoose.connect(process.env.DATABASE_URI ?? '', {});
 };
 
-// Export the database connections
 export default connectMongoDB;

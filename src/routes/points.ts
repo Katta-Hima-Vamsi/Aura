@@ -1,19 +1,30 @@
-// Import the express package
 import express from 'express';
 
-// Import the routes related to points management
 import auth from '@src/middleware/verifyToken';
 import addPoints from '@src/controllers/points/pointsManagement';
 import mainLeaderboard from '@src/controllers/points/leaderboards/mainLeaderboard';
 import podium from '@src/controllers/points/leaderboards/podium';
 
-// Create a new router
+/**
+ * router is an instance of the Express router.
+ */
 const router = express.Router();
 
-// Add the routes to the router
+/**
+ * addPoints is a route that handles requests to add points to a user's account. It requires the request to be
+ * authenticated.
+ */
 router.post('/add', auth, addPoints);
+
+/**
+ * mainLeaderboard is a route that handles requests to retrieve the main leaderboard.
+ */
 router.get('/leaderboard/main', mainLeaderboard);
+
+/**
+ * podium is a route that handles requests to retrieve the podium of a given house. It expects the house to be
+ * passed as a URL parameter.
+ */
 router.get('/leaderboard/podium/:house', podium);
 
-// Export the router
 export default router;
