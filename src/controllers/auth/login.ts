@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
+
 import userSchema from '@src/model/user';
 
 /**
@@ -28,6 +29,7 @@ const login = async (req: Request, res: Response) => {
     return res.status(400).send('Email or password is incorrect');
   }
 
+  // eslint-disable-next-line no-underscore-dangle
   const token = jwt.sign({ _id: user._id, exp: Math.floor(Date.now() / 1000) + 45 }, String(process.env.TOKEN_SECRET));
   return res.status(201).send({ token });
 };

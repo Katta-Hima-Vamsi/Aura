@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+
 import user from '@src/model/user';
 
 /**
@@ -10,6 +11,7 @@ import user from '@src/model/user';
  * @returns {Promise<void>} - Returns a promise that resolves when the user account is deleted successfully,
  * or rejects with an error if the user account could not be deleted
  */
+// eslint-disable-next-line consistent-return
 const deleteAcc = async (req: Request, res: Response) => {
   if (!req.body.email) {
     return res.status(400).send('Please provide the required email field');

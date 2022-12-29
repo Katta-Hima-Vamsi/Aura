@@ -13,6 +13,7 @@ import logs from '@src/model/logs';
  *
  * @returns {(Error|void)} - Returns an error if one occurs, otherwise returns nothing
  */
+// eslint-disable-next-line consistent-return
 async function createLog(teacherEmail: string, studentName: string, pointsAdded: number, reason: string) {
   try {
     await logs.create({

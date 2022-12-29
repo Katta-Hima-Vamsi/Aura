@@ -27,7 +27,7 @@ const createMysqlConnection = (): mysql.Pool =>
     connectTimeout: 60000,
   });
 
-  /**
+/**
  * mainLeaderboard is an async function that handles main leaderboard requests.
  *
  * @param {Request} req - The request object contains information about the HTTP request
@@ -47,7 +47,7 @@ const mainLeaderboard = async (req: Request, res: Response): Promise<void> => {
 
     switch (Object.keys(req.body).length) {
       case 0:
-        houses.forEach(async (house) => {
+        houses.forEach(async house => {
           const query = `SELECT SUM(points) FROM ${process.env.SQL_DATABASE_NAME}.${process.env.SQL_TABLENAME} WHERE student_house='${house}'`;
           try {
             const [rows] = await pool.promise().query(query);
@@ -73,8 +73,7 @@ const mainLeaderboard = async (req: Request, res: Response): Promise<void> => {
         break;
       default:
         res.status(400).send({
-          error:
-            "Please do not include anything in your request's body, this endpoint does not require any data",
+          error: "Please do not include anything in your request's body, this endpoint does not require any data",
         });
     }
   }

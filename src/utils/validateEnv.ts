@@ -1,4 +1,4 @@
-import { cleanEnv, str, num, port, email, url  } from 'envalid';
+import { cleanEnv, str, num, port, email, url } from 'envalid';
 
 /**
  * validateEnv is a function that validates and cleans the environment variables using the Envalid
@@ -9,22 +9,22 @@ import { cleanEnv, str, num, port, email, url  } from 'envalid';
  */
 function validateEnv() {
   cleanEnv(process.env, {
-    PORT:port(),
-    INSTANCE_NUMBER:num(),
-    TOKEN_SECRET:str(),
-    API_MANAGER_EMAIL:email(),
-    POINTS_LIMIT:num(),
-    TIME_ZONE:str(),
-    HOUSES:str(),
-    STATUS_EMAIL:email(),
-    STATUS_EMAIL_PASSWORD:str(),
-    DATABASE_URI:url(),
-    SQL_HOST:str(),
-    SQL_USER:str(),
-    SQL_PASSWORD:str(),
-    SQL_PORT:str(),
-    SQL_DATABASE_NAME:str(),
-    SQL_TABLENAME:str()
+    PORT: port(),
+    INSTANCE_NUMBER: num(),
+    TOKEN_SECRET: str(),
+    API_MANAGER_EMAIL: email(),
+    POINTS_LIMIT: num(),
+    TIME_ZONE: str(),
+    HOUSES: str(),
+    STATUS_EMAIL: email(),
+    STATUS_EMAIL_PASSWORD: str(),
+    DATABASE_URI: url(),
+    SQL_HOST: str(),
+    SQL_USER: str(),
+    SQL_PASSWORD: str(),
+    SQL_PORT: str(),
+    SQL_DATABASE_NAME: str(),
+    SQL_TABLENAME: str(),
   });
 }
 

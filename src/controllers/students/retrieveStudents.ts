@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import mysql from 'mysql2';
+
 import sendMail from '@src/config/nodeMailer';
 
 dotenv.config();
@@ -40,7 +41,7 @@ const students = async (req: Request, res: Response) => {
     return;
   }
 
-  const student = req.params.student;
+  const { student } = req.params;
   // MySQL query to search for students with a name that matches the search parameter
   const queryWithName = `
     SELECT *
@@ -71,7 +72,11 @@ const students = async (req: Request, res: Response) => {
 
     pool.query(queryWithID, (error, row) => {
       if (error) {
-        res.status(500).send(`We are unable to process your request at the moment, please try after a few minutes. If this issue persists, please check the details entered or email ${process.env.API_MANAGER_EMAIL} regarding the issue.`);
+        res
+          .status(500)
+          .send(
+            `We are unable to process your request at the moment, please try after a few minutes. If this issue persists, please check the details entered or email ${process.env.API_MANAGER_EMAIL} regarding the issue.`
+          );
         const emailSubject = 'There was an error in the retrieveStudents.ts controller';
         const message = `An error occurred in the retrieveStudents.ts controller with MySQL query on instance ${process.env.INSTANCE_NUMBER}, for more information please check the logs`;
         sendMail(emailSubject, message);
@@ -89,4 +94,3 @@ const students = async (req: Request, res: Response) => {
 };
 
 export default students;
-

@@ -67,9 +67,9 @@ app.get('/', (req: Request, res: Response) => {
   if (Object.keys(req.body).length === 0) {
     res.send('Hello there!');
   } else {
-    res.status(400).send(
-      "Please do not include anything in your request's body, this endpoint does not require any data "
-    );
+    res
+      .status(400)
+      .send("Please do not include anything in your request's body, this endpoint does not require any data ");
   }
 });
 

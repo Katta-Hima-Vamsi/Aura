@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
+
 import User from '@src/model/user';
 
 /**
@@ -11,6 +12,7 @@ import User from '@src/model/user';
  * @returns {Promise<void>} - Returns a promise that resolves when the user is registered successfully,
  * or rejects with an error if the registration process fails
  */
+// eslint-disable-next-line consistent-return
 const register = async (req: Request, res: Response) => {
   const { name, email, password } = req.body;
   if (!name || !email || !password) {

@@ -1,6 +1,10 @@
 import { Request, Response } from 'express';
 import mysql from 'mysql2';
+import dotenv from 'dotenv';
+
 import sendMail from '@src/config/nodeMailer';
+
+dotenv.config()
 
 /**
  * createMysqlConnection is a function that creates a new connection pool to the MySQL database.
@@ -28,13 +32,15 @@ const connection = mysql.createPool({
 const podium = (req: Request, res: Response) => {
   if (Object.keys(req.body).length > 0) {
     // If the request body is not empty, return a bad request response
-    res.status(400).send("Please do not include anything in your request's body, this endpoint does not require any data ");
+    res
+      .status(400)
+      .send("Please do not include anything in your request's body, this endpoint does not require any data ");
     return;
   }
-  
+
   // Get the house from the request parameters
-  const house = req.params.house;
-  
+  const { house } = req.params;
+
   // Create the MySQL query to get the top 3 students for the given house
   const query = `
     SELECT *
@@ -43,7 +49,7 @@ const podium = (req: Request, res: Response) => {
     ORDER BY points DESC
     LIMIT 3;
   `;
-  
+
   // Execute the query and send the response
   connection.query(query, (err, rows) => {
     if (err) {
@@ -55,7 +61,7 @@ const podium = (req: Request, res: Response) => {
       console.error(err);
       return;
     }
-    
+
     // If the query was successful, return the rows as the response
     res.status(200).send(rows);
   });

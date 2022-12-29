@@ -18,9 +18,9 @@ const pool = mysql.createPool({
 });
 
 /**
- * healthCheck is a function that handles a health check request. It first checks that the request body is empty. 
- * It then runs a MySQL query that retrieves the version of the database. If there is an error or the query returns 
- * no results, the function sends an email notification to the API manager with the error message and logs the error. 
+ * healthCheck is a function that handles a health check request. It first checks that the request body is empty.
+ * It then runs a MySQL query that retrieves the version of the database. If there is an error or the query returns
+ * no results, the function sends an email notification to the API manager with the error message and logs the error.
  * If the query is successful, the function sends a status code 200 and the message "OK" to the client.
  *
  * @param {Request} req - The request object contains information about the HTTP request

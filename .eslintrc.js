@@ -22,10 +22,6 @@ module.exports = {
   rules: {
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
     '@typescript-eslint/no-explicit-any': 'off',
-    'consistent-return': 'off',
-    'no-shadow': 'off',
-    'import/extensions': 'off',
-    'import/no-unresolved': 'error',
     'no-console': 'off',
     'import/order': [
       'error',

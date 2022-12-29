@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import mysql from 'mysql2';
+
 import createLog from '@src/middleware/logger';
 import sendMail from '@src/config/nodeMailer';
 
@@ -33,12 +34,12 @@ const pool = mysql.createPool({
  */
 const addPoints = async (req: Request, res: Response) => {
   const { student, teacher, reason, points } = req.body;
-  
+
   if (!student || !teacher || !reason || !points) {
     res.status(400).send('Student name, teacher name, points and reason are required');
     return;
   }
-  
+
   if (Number.isNaN(points)) {
     res.status(400).send('Points should be a number');
     return;
@@ -73,8 +74,8 @@ const addPoints = async (req: Request, res: Response) => {
 
     createLog(teacher, student, points, reason)
       .then(() => res.send('Points added successfully'))
-      .catch(err => {
-        console.error(err);
+      .catch(error => {
+        console.error(error);
         const emailSubject = 'There was an error in the logger.ts middleware';
         const message = `The logger failed to save a log to mongoDB on instance ${process.env.INSTANCE_NUMBER}, for more information please check the logs`;
         sendMail(emailSubject, message);
@@ -84,4 +85,3 @@ const addPoints = async (req: Request, res: Response) => {
 };
 
 export default addPoints;
-
